@@ -36,17 +36,37 @@
 }
 
 .projectCard {
-  background: var(--gray-900);
-  border: 1px solid var(--gray-800);
-  border-radius: 8px;
+  background: rgba(25, 25, 25, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
 .projectCard:hover {
-  border-color: var(--accent-khaki-light);
-  box-shadow: 0 10px 40px -10px rgba(45, 58, 44, 0.4);
-  transform: translateY(-5px);
+  border-color: rgba(140, 164, 140, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(140, 164, 140, 0.1);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.projectCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.03) 0%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.projectCard:hover::after {
+  opacity: 1;
 }
 
 .cardLink {
@@ -55,8 +75,8 @@
 
 .imageWrapper {
   position: relative;
-  aspect-ratio: 16 / 9;
-  background: #0a0a0a;
+  aspect-ratio: 16 / 10;
+  background: #050505;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,13 +108,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(45, 58, 44, 0.6);
-  backdrop-filter: blur(4px);
+  background: rgba(140, 164, 140, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
 }
 

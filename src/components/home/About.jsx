@@ -1,7 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import Section from '../common/Section';
 import Reveal from '../common/Reveal';
 import styles from './About.module.css';
+import { FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const About = () => {
   const skills = [
@@ -43,6 +47,24 @@ const About = () => {
                 <div key={index} className={styles.skillItem}>{skill}</div>
               ))}
             </div>
+            
+            <motion.div 
+              className={styles.buttonContainer}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+            >
+              <a 
+                href="/Eren_Cem_Degirmenci_CV.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.cvButton}
+              >
+                <FileText size={20} />
+                <span>View CV</span>
+              </a>
+            </motion.div>
           </Reveal>
         </div>
       </div>

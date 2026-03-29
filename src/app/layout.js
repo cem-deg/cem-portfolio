@@ -22,6 +22,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={geist.variable}>
+        <div className="bg-blob blob-1"></div>
+        <div className="bg-blob blob-2"></div>
         {children}
       </body>
     </html>

@@ -22,27 +22,38 @@
   width: 100%;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+  width: 100%;
+}
+
+.innerCarousel {
+  display: flex;
   gap: 2rem;
 }
 
+.item {
+  min-width: 300px;
+  padding: 1rem 0;
+}
+
 @media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
+  .item {
+    min-width: 350px;
   }
 }
 
 .certCard {
-  background: var(--gray-900);
-  border: 1px solid var(--gray-800);
-  padding: 2rem;
+  background: rgba(25, 25, 25, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  transition: all 0.4s ease;
+  gap: 1.2rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   height: 100%;
 }
 
@@ -53,9 +64,9 @@
 }
 
 .iconWrapper {
-  width: 50px;
-  height: 50px;
-  background: var(--accent-khaki-dark);
+  width: 40px;
+  height: 40px;
+  background: rgba(140, 164, 140, 0.1);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -86,4 +97,17 @@
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--accent-khaki);
+}
+
+.hint {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--gray-500);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.6;
 }

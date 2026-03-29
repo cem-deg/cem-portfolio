@@ -90,3 +90,30 @@
   background: var(--accent-khaki-dark);
   border-color: var(--accent-khaki-light);
 }
+
+.buttonContainer {
+  margin-top: 3rem;
+}
+
+.cvButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: rgba(140, 164, 140, 0.1);
+  border: 1px solid rgba(140, 164, 140, 0.3);
+  border-radius: 12px;
+  color: #8ca48c;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+}
+
+.cvButton:hover {
+  background: rgba(140, 164, 140, 0.2);
+  border-color: #8ca48c;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -10px rgba(140, 164, 140, 0.5);
+  color: #a3b8a3;
+}
