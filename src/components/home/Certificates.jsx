@@ -15,16 +15,22 @@ const CERT_DATA = [
     link: "/certificates/CS50x.pdf"
   },
   {
-    title: "Introduction to Python",
+    title: "Intermediate Python",
     issuer: "DataCamp",
     date: "2026",
-    link: "/certificates/datacamp-python101.pdf"
+    link: "/certificates/datacamp-python-Intermediate.pdf"
   },
   {
     title: "Full-Stack Web Development",
     issuer: "Udemy",
     date: "2026",
     link: "/certificates/full-stack.pdf"
+  },
+  {
+    title: "Introduction to Python",
+    issuer: "DataCamp",
+    date: "2026",
+    link: "/certificates/datacamp-python101.pdf"
   }
 ];
 
@@ -58,7 +64,28 @@ const Certificates = () => {
     };
   }, [checkScroll]);
 
+  // Native wheel handler — passive: false zorunlu ki preventDefault çalışsın
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+
+    const onWheel = (e) => {
+      if (e.deltaY === 0) return;
+      e.preventDefault();
+      e.stopPropagation();
+      el.scrollLeft += e.deltaY > 0 ? 50 : -50;
+    };
+
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, []);
+
   const scrollBy = (dir) => {
+    isDragging.current = false;
+    if (trackRef.current) {
+      trackRef.current.style.cursor = 'grab';
+      trackRef.current.style.userSelect = '';
+    }
     trackRef.current?.scrollBy({ left: dir * 340, behavior: 'smooth' });
   };
 
@@ -73,7 +100,6 @@ const Certificates = () => {
 
   const onMouseMove = (e) => {
     if (!isDragging.current) return;
-    e.preventDefault();
     const x = e.pageX - trackRef.current.offsetLeft;
     const walk = (x - startX.current) * 1.5;
     trackRef.current.scrollLeft = scrollLeft.current - walk;

@@ -14,11 +14,11 @@ const PROJECTS_DATA = [
     image: "/images/effw.jpeg"
   },
   {
-    title: "Cem's ScreenShotter",
-    category: "Browser Extension",
-    description: "A professional Chrome extension for capturing and managing high-quality full-page screenshots.",
-    link: "https://github.com/cem-deg/Cem-s-ScreenShotter",
-    image: "/images/screenshotter.png"
+    title: "Datafle - Smart Finance Tracker",
+    category: "Web and Mobile Application",
+    description: "A smart finance tracking application for managing personal finances seamlessly.",
+    link: "https://github.com/cem-deg/datafle-finance-tracker",
+    image: "/images/finance-tracker.jpeg"
   },
   {
     title: "Upcoming Project",
